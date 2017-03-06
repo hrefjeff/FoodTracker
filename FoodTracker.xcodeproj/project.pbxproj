@@ -13,6 +13,7 @@
 		FC7929951E68B6EE0073E41E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC7929941E68B6EE0073E41E /* Assets.xcassets */; };
 		FC7929981E68B6EE0073E41E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7929961E68B6EE0073E41E /* LaunchScreen.storyboard */; };
 		FC7929A31E68B6EE0073E41E /* FoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7929A21E68B6EE0073E41E /* FoodTrackerTests.swift */; };
+		FCBCC2811E6E0C530028CD58 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBCC2801E6E0C530028CD58 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		FC79299E1E68B6EE0073E41E /* FoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC7929A21E68B6EE0073E41E /* FoodTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerTests.swift; sourceTree = "<group>"; };
 		FC7929A41E68B6EE0073E41E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCBCC2801E6E0C530028CD58 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		FC7929811E68B6ED0073E41E = {
 			isa = PBXGroup;
 			children = (
+				FCBCC2801E6E0C530028CD58 /* Default-568h@2x.png */,
 				FC79298C1E68B6EE0073E41E /* FoodTracker */,
 				FC7929A11E68B6EE0073E41E /* FoodTrackerTests */,
 				FC79298B1E68B6EE0073E41E /* Products */,
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC7929981E68B6EE0073E41E /* LaunchScreen.storyboard in Resources */,
+				FCBCC2811E6E0C530028CD58 /* Default-568h@2x.png in Resources */,
 				FC7929951E68B6EE0073E41E /* Assets.xcassets in Resources */,
 				FC7929931E68B6EE0073E41E /* Main.storyboard in Resources */,
 			);
@@ -404,6 +408,7 @@
 				FC7929A91E68B6EE0073E41E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FC7929AA1E68B6EE0073E41E /* Build configuration list for PBXNativeTarget "FoodTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +417,7 @@
 				FC7929AC1E68B6EE0073E41E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

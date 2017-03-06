@@ -15,3 +15,12 @@ Used the assistant editor to add outlets (link ) and actions to your source code
 + Make a class conform to a protocol
 + Understand the delegation pattern
 + Follow the target-action pattern when designing app architecture
+
+## Lesson 3: Working with View Controllers
+
++ Understand the view controller life cycle and its callbacks (for example, viewDidLoad, viewWillAppear and viewDidAppear) 
++ Pass data between view controllers
++ Dismiss a view controller
++ Use gesture recognizers to generate events
++ Anticipate object behavior based on the UIView/UIControl class hierarchy
++ Use the asset catalog to add image assets to a project
