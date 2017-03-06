@@ -24,3 +24,13 @@ Used the assistant editor to add outlets (link ) and actions to your source code
 + Use gesture recognizers to generate events
 + Anticipate object behavior based on the UIView/UIControl class hierarchy
 + Use the asset catalog to add image assets to a project
+
+## Less 4: Implement a custom control
+
++ Create and associate custom source code files with elements in a storyboard
++ Define a custom class
++ Implement an initializer on a custom class
++ Use UIStackView as a container
++ Understand how to create views programmatically
++ Add accessibility information to a custom control
++ Work with @IBInspectable and @IBDesignable to display and control a custom view in Interface Builder
