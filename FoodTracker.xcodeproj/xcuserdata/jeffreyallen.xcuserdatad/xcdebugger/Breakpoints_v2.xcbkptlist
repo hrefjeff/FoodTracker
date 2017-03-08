@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MealTableViewController.swift"
-            timestampString = "510618145.735856"
+            timestampString = "510639579.279936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "loadSampleMeals()"
             landmarkType = "7">
          </BreakpointContent>

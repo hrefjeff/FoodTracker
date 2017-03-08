@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class MealViewController: UIViewController, UITextFieldDelegate,
                       UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -20,31 +21,56 @@ class MealViewController: UIViewController, UITextFieldDelegate,
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    /*
+     This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
+     or constructed as part of adding a new meal.
+     */
+    var meal: Meal?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
         
+        // Enable the Save button only if the text field has a valid Meal name.
+        updateSaveButtonState()
+        
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+   
     }
     
     //MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         // Hide the keyboard
         textField.resignFirstResponder()
         return true;
+    
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    
+        // Disable the Save button while editing.
+        saveButton.isEnabled = false
+    
     }
     
     // Called when textfield loses first responder status
     func textFieldDidEndEditing(_ textField: UITextField) {
-        mealNameLabel.text = textField.text;
+        
+        updateSaveButtonState()
+        navigationItem.title = textField.text
+        
     }
     
     //MARK: UIImagePickerControllerDelegate
@@ -69,31 +95,61 @@ class MealViewController: UIViewController, UITextFieldDelegate,
         dismiss(animated: true, completion: nil)
     }
     
+    //MARK: Navigation
+    // This method lets you configure a view controller before it's presented.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        super.prepare(for: segue, sender: sender);
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        // ?? : The nil coalescing operator is used to return the
+        // value of an optional if the optional has a value,
+        // or return a default value otherwise.
+        let name = nameTextField.text ?? ""
+        let photo = photoImageView.image
+        let rating = ratingControl.rating
+        
+        // Set the meal to be passed to MealTableViewController after the unwind segue.
+        meal = Meal(name: name, photo: photo, rating: rating)
+        
+    }
+    
     // MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
     
         // Hide the keyboard.
-        nameTextField.resignFirstResponder()
+        nameTextField.resignFirstResponder();
         
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
-        let imagePickerController = UIImagePickerController()
+        let imagePickerController = UIImagePickerController();
         
         // Only allow photos to be picked, not taken.
-        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.sourceType = .photoLibrary;
         
         // Make sure ViewController is notified when the user picks an image.
-        imagePickerController.delegate = self
-        present(imagePickerController, animated: true, completion: nil)
+        imagePickerController.delegate = self;
+        present(imagePickerController, animated: true, completion: nil);
 
     }
     
-    
-    
     // sender : refers to the object that was responsible for triggering the action
     @IBAction func setDefaultLabelText(_ sender: UIButton) {
-        mealNameLabel.text = "Default Text"
+        mealNameLabel.text = "Default Text";
     }
     
+    //MARK: Private Methods
+    private func updateSaveButtonState() {
+        
+        // Disable the Save button if the text field is empty.
+        let text = nameTextField.text ?? "";
+        saveButton.isEnabled = !text.isEmpty;
+    
+    }
     
 
 
