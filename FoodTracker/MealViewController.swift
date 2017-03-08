@@ -121,7 +121,7 @@ class MealViewController: UIViewController, UITextFieldDelegate,
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil);
     
     }
     
@@ -157,8 +157,6 @@ class MealViewController: UIViewController, UITextFieldDelegate,
         saveButton.isEnabled = !text.isEmpty;
     
     }
-    
-
 
 }
 
